@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <input type="text" placeholder="Enter a name">
+        <button id="btn1">Add To Array</button>
+        <button id="btn2">Print Array</button>
+        <p></p>
+    </div>
+    <script>
+
+        const names = [];
+        const input = document.querySelector("input");
+        const add = document.querySelector("#btn1");
+        const printArray = document.querySelector("#btn2");
+        const para = document.querySelector("p");
+
+        add.onclick = () => {
+            names.push(input.value);
+            console.log(names);
+        };
+
+        printArray.onclick = () => {
+            var newws = [];
+            var count = 0;
+            var interval = setInterval(() => {
+                if (count < names.length) {
+                    var cat = "";
+                    for (var j = 0; j < names[count].length; j++) {
+                        cat =cat+ names[count][j];
+                    }
+                    newws.push(cat);
+                    para.innerHTML = newws.join(",");
+                    count++;
+                    console.log("newws.length", newws.length)
+                    console.log(newws)
+
+                } else {
+                    clearInterval(interval);
+                }
+            }, 1000);
+        };
+    </script>
+
+</body>
+
+</html>
